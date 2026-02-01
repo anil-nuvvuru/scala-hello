@@ -13,12 +13,15 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up JDK
+      - name: Set up Java
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: 11
           cache: sbt
+
+      - name: Install sbt
+        uses: sbt/setup-sbt@v1
 
       - name: Build with sbt
         run: sbt clean compile
